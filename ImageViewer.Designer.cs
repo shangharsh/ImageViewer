@@ -40,7 +40,6 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Location = new System.Drawing.Point(0, 31);
             this.menuStrip1.Name = "menuStrip1";
@@ -50,7 +49,6 @@
             // 
             // menuStrip2
             // 
-            this.menuStrip2.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItem1});
@@ -90,6 +88,7 @@
             this.PictureBox.Location = new System.Drawing.Point(0, 55);
             this.PictureBox.Name = "PictureBox";
             this.PictureBox.Size = new System.Drawing.Size(800, 395);
+            this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBox.TabIndex = 2;
             this.PictureBox.TabStop = false;
             // 
@@ -107,6 +106,7 @@
             this.Name = "ImageViewer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ImageViewer";
+            this.Load += new System.EventHandler(this.ImageViewer_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();

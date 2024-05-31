@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,26 +21,25 @@ namespace ImageViewer
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            string fileName = System.IO.File.ReadAllText(ofd.FileName,Encoding.UTF8);
-            MessageBox.Show(fileName);
+            ofd.FileName = "";
+            ofd.Filter = "Image Files (*.jpeg; *.jpg; *.gif; *.bmp; *.wmf; *.png) | *.jpeg; *.jpg; *.gif; *.bmp; *.wmf; *.png";
+            ofd.ShowDialog();
 
-            //string fileName = ofd.FileName;
-            //this.PictureBox.Image = Image.FromFile(fileName);
-            //this.PictureBox.Image = Image
-
-            //FolderBrowserDialog fbd = new FolderBrowserDialog();
-            //fbd.Description = "Custom Description";
-            //string sSelectedPath;
-            //if (fbd.ShowDialog() == DialogResult.OK)
-            //{
-            //    sSelectedPath = fbd.SelectedPath;
-            //    MessageBox.Show(sSelectedPath);
-            //}
+            if (!string.IsNullOrEmpty(ofd.FileName))
+            {
+                PictureBox.Image = Image.FromFile(@ofd.FileName);
+            }
         }
 
         private void ClearToolStripMenuItem_Click(object sender, EventArgs e)
         {
            this.PictureBox.Image = null;
+        }
+
+        private void ImageViewer_Load(object sender, EventArgs e)
+        {
+            this.PictureBox.Image = null;
+
         }
     }
 }
